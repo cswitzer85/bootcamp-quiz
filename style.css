@@ -1,0 +1,39 @@
+header {
+    text-align: center;
+    background-color: black;
+    padding: 30px;
+    border: outset lime;
+    font-size: 60px;
+    font-family: monospace;
+    color: lime;
+}
+
+.playground {
+    /*value timer current divided by timer start in HTML???*/
+    display: flex;
+}
+
+.row {
+    display: flex;
+    width: 85%;
+    margin-top: 2%;
+}
+
+progress {
+    padding: 5%;
+    margin: 5%;
+}
+
+main {
+    text-align: center;
+    width: 69%;
+    margin-left: 4%;
+    background-color: red;
+    color: white;
+}
+
+aside {
+    width: 15%;
+    margin-top: 2%;
+    background-color: lightgrey;
+}
