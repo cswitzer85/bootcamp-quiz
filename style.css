@@ -22,6 +22,21 @@ header {
 progress {
     padding: 5%;
     margin: 5%;
+    height: 60px;
+    width: 170px;
+}
+
+button {
+    font-size: x-large;
+    font-family: monospace;
+    height: 50px;
+    width: 210px;
+    padding-top: 12px;
+}
+
+.timer {
+    padding-top: 55px;
+    font-size: xx-large;
 }
 
 main {

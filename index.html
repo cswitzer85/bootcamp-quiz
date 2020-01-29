@@ -12,17 +12,41 @@
 
 <body>
 
-    <header>So you think you know code?</header>   
+    <header>So you think you know code?</header>
     <div class="playground">
         <div class="row">
-            <progress value="70" max="100" class="col-2-sm col-2- md col-2-lg">progress
+            <button onclick="startGame()">PRESS TO START</button>
+            <progress id="gameTimer" value="70" max="100" class="col-2-sm col-2- md col-2-lg">progress
             </progress>
+            <h1 class="timer"></h1>
 
-            <main class="col-4-sm col-6-md">Main
-            </main>
         </div>
-        <aside class="col-3-sm col-2- md col-2-lg">aside
-        </aside>
+        <main class="col-4-sm col-6-md">Main Area
+            <h2>Question ### of ####</h2>
+            <p>Question ### text here</p>
+            <form role="form" name=answerOptions id="answerOptions" action="answerOption.asp">
+                1
+                <br>
+                2
+                <br>
+                3
+                <br>
+                4
+                <br>
+                4
+                <br>
+                4
+                <br>
+                4
+                <br>
+                4
+                <br>
+
+            </form>
+        </main>
+    </div>
+    <aside class="col-3-sm col-2- md col-2-lg">aside
+    </aside>
     </div>
 </body>
 
