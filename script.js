@@ -4,7 +4,7 @@
 
 //---------------_______________---------------Functions---------------_______________---------------
 function startGame() {
-    var secondsRemaining = 6;
+    var secondsRemaining = 60;
 
     var timerInterval = setInterval(function () {
         secondsRemaining--;
@@ -14,7 +14,8 @@ function startGame() {
             //   clearInterval(timerInterval);
             //   sendMessage();
             console.log(secondsRemaining);
-
+            $("#timer").text(secondsRemaining);
+            $("#gameTimer").attr("value",secondsRemaining);
         }
     }, 1000);
 
@@ -38,8 +39,5 @@ function startGame() {
 //prompt input for high score
 //when input for high score is submitted ->
 //update high score display
-
-
-
 
 
