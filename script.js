@@ -1,26 +1,29 @@
 //---------------_______________---------------Variables---------------_______________---------------
-
-
+var secondsRemaining = 3;
+var highScores = [];
+var userInitials;
 
 //---------------_______________---------------Functions---------------_______________---------------
+//when play button pressed ->
 function startGame() {
-    var secondsRemaining = 60;
-
+    //timer will start counting down from 60 seconds
     var timerInterval = setInterval(function () {
         secondsRemaining--;
-        // timerEl.textContent = secondsRemaining;
-
+        // timer will run until it reaches 0 seconds
         if (secondsRemaining >= 0) {
-            //   clearInterval(timerInterval);
-            //   sendMessage();
             console.log(secondsRemaining);
             $("#timer").text(secondsRemaining);
-            $("#gameTimer").attr("value",secondsRemaining);
+            $("#gameTimer").attr("value", secondsRemaining);
+        } 
+        //once time reaches 0 a prompt will ask user for their initials
+        else if (secondsRemaining === -1) {
+            userInitials = prompt("Please enter your initials for your high score!")
+            highScores = highScores.concat(userInitials);
         }
     }, 1000);
+} //---------------End of start function---------------
 
-}
-
+// Question display
 
 //---------------_______________---------------Questions---------------_______________---------------
 // "Select answer A"
@@ -28,8 +31,6 @@ function startGame() {
 // "Select answer C"
 // "Select answer D"
 
-//when play button pressed ->
-//timer will start counting down from 60 seconds
 //first question will appear
 //whenever an answer is chosen ->
 //if correct change score by +1
@@ -39,5 +40,3 @@ function startGame() {
 //prompt input for high score
 //when input for high score is submitted ->
 //update high score display
-
-
