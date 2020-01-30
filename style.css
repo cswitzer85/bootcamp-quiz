@@ -1,8 +1,16 @@
+body {
+    background-color: rgb(51, 51, 51);
+    color: #5278f7;
+    
+}
+
 header {
     text-align: center;
     background-color: black;
+    width: max-content;
     padding: 30px;
-    border: outset lime;
+    margin-left: 20%;
+    border: dashed lime;
     font-size: 60px;
     font-family: monospace;
     color: lime;
@@ -15,24 +23,25 @@ header {
 
 .row {
     display: flex;
-    width: 85%;
     margin-top: 2%;
-}
-
-progress {
-    padding: 5%;
-    margin: 5%;
-    height: 60px;
-    width: 170px;
 }
 
 button {
     font-size: x-large;
     font-family: monospace;
-    height: 50px;
-    width: 210px;
-    padding-top: 12px;
+    padding: 2%;
+    margin: 2%;
+    width: max-content;
+    background-color: black;
+    border: outset lime;
+    color: lime;
 }
+
+progress {
+    padding-top: 25%;
+    margin-left: 25%;
+}
+
 
 .timer {
     padding-top: 55px;
@@ -40,15 +49,21 @@ button {
 }
 
 main {
+    float: right;
     text-align: center;
-    width: 69%;
     margin-left: 4%;
-    background-color: red;
-    color: white;
+    padding: 2%;
+}
+h1 {
+    font-family: monospace;
 }
 
 aside {
-    width: 15%;
     margin-top: 2%;
-    background-color: lightgrey;
+    padding-left: 2%;
+    background-color: black;
+    color: lime;
+    font-family: monospace;
+    font-size: xx-large;
+    border: dashed lime;
 }

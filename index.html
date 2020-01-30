@@ -15,37 +15,27 @@
     <header>So you think you know code?</header>
     <div class="playground">
         <div class="row">
-            <button onclick="startGame()">PRESS TO START</button>
-            <progress id="gameTimer" value="60" max="60" class="col-2-sm col-2- md col-2-lg">progress
-            </progress>
-            <h1 id="timer">60</h1>
-
+            <div>
+               <button onclick="startGame()">PRESS TO START</button>
+            </div>
+            <div>
+                <progress id="gameTimer" value="60" max="60"></progress>
+            <!-- </div>
+            <div> -->
+                <h1 id="timer" style="padding-left: 65%;">60</h1>
+            </div>
         </div>
-        <main class="col-4-sm col-6-md">Main Area
-            <h2>Question ### of ####</h2>
-            <p>Question ### text here</p>
-            <form role="form" name=answerOptions id="answerOptions" action="answerOption.asp">
-                1
-                <br>
-                2
-                <br>
-                3
-                <br>
-                4
-                <br>
-                4
-                <br>
-                4
-                <br>
-                4
-                <br>
-                4
-                <br>
-
-            </form>
+        <main id="questionDisplay" class="col-4-sm col-6-md col-6-lg">
+            <h1>Question here</h1>
+            <h3>
+                <button id="buttonA">(A) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonB">(B) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonC">(C) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonD">(D) Here is an answer of maximum expected lenght for the sake of CSS</button>
+            </h3>
         </main>
     </div>
-    <aside class="col-3-sm col-2- md col-2-lg">aside
+    <aside class="highScore col-3-sm col-2- md col-2-lg">Can you beat the high score?
     </aside>
     </div>
 
