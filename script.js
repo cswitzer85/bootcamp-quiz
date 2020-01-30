@@ -1,7 +1,7 @@
 //---------------_______________---------------Variables---------------_______________---------------
 var highScoreInitials = [];
 var userInitials;
-var questionsArray = ["Select answer A", "Select answer B", "Select answer C", "Select answer D", "Select answer A", "Select answer B", "Select answer C", "Select answer D"];
+var questionsArray = ["What letter does array stary with?", "What letter does boolean start with?", "What letter does concatinate start with?", "What letter does div start with?", "What letter does append start with?", "What letter does body start with?", "What letter does class start with?", "What letter does doctype start with?"];
 var answerOptionsArray = [arrayOfQuestionsForQuestionI0, arrayOfQuestionsForQuestionI1, arrayOfQuestionsForQuestionI3, arrayOfQuestionsForQuestionI4, arrayOfQuestionsForQuestionI5, arrayOfQuestionsForQuestionI6, arrayOfQuestionsForQuestionI7]
 var arrayOfQuestionsForQuestionI0 = [ "This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
 var arrayOfQuestionsForQuestionI1 = [ "This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
@@ -18,7 +18,7 @@ var arrayOfQuestionsForQuestionI7 = [ "This answer is answer A", "This answer is
 //when play button pressed ->
 function startGame() {
     //timer will start counting down from 60 seconds 
-    var secondsRemaining = 60;
+    var secondsRemaining = 10;
     getRandomQuestion();
 
     var timerInterval = setInterval(function () {
