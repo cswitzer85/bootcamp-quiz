@@ -30,7 +30,7 @@ button {
     font-size: x-large;
     font-family: monospace;
     padding: 2%;
-    margin: 2%;
+    margin: 1.5%;
     width: max-content;
     background-color: black;
     border: outset lime;
@@ -56,9 +56,10 @@ main {
 }
 h1 {
     font-family: monospace;
+    font-size: xx-large;
 }
 
-aside {
+footer {
     margin-top: 2%;
     padding-left: 2%;
     background-color: black;

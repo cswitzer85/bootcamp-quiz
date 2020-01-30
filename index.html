@@ -7,36 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<script src="https://kit.fontawesome.com/7d87cc47cb.js" crossorigin="anonymous"></script>
+</script>    <script src="script.js"></script>
 </head>
 
 <body>
 
     <header>So you think you know code?</header>
     <div class="playground">
-        <div class="row">
+        <aside class="row">
             <div>
-               <button onclick="startGame()">PRESS TO START</button>
+               <button onclick="startGame()"><i class="fas fa-play"></i> PRESS TO START</button>
             </div>
             <div>
                 <progress id="gameTimer" value="60" max="60"></progress>
-            <!-- </div>
-            <div> -->
                 <h1 id="timer" style="padding-left: 65%;">60</h1>
             </div>
-        </div>
-        <main id="questionDisplay" class="col-4-sm col-6-md col-6-lg">
-            <h1>Question here</h1>
+        </aside>
+        <main class="col-4-sm col-6-md col-6-lg">
+            <h1 id="questionDisplay">Question here</h1>
             <h3>
-                <button id="buttonA">(A) Here is an answer of maximum expected lenght for the sake of CSS</button>
-                <button id="buttonB">(B) Here is an answer of maximum expected lenght for the sake of CSS</button>
-                <button id="buttonC">(C) Here is an answer of maximum expected lenght for the sake of CSS</button>
-                <button id="buttonD">(D) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonA" onclick="buttonA_Selected()">(A) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonB"onclick="buttonB_Selected()">(B) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonC"onclick="buttonC_Selected()">(C) Here is an answer of maximum expected lenght for the sake of CSS</button>
+                <button id="buttonD"onclick="buttonD_Selected()">(D) Here is an answer of maximum expected lenght for the sake of CSS</button>
             </h3>
         </main>
     </div>
-    <aside class="highScore col-3-sm col-2- md col-2-lg">Can you beat the high score?
-    </aside>
+    <footer class="highScore col-3-sm col-2- md col-2-lg">Can you beat the high score?
+    </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
