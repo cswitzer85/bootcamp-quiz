@@ -35,7 +35,7 @@ function buttonD_Selected() {
     console.log("button D pressed")
     checkAnswer();
 };
-var currentScore;
+var currentScore = 0
 var selectedButton;
 
 function checkAnswer() {
@@ -56,6 +56,7 @@ function checkAnswer() {
     function startGame() {
         //timer will start counting down from 60 seconds 
         secondsRemaining = 60;
+        currentScore = 0;
         getFirstQuestion();
 
         var timerInterval = setInterval(function () {
@@ -69,7 +70,7 @@ function checkAnswer() {
             //once time reaches 0 a prompt will ask user for their initials
             else if (secondsRemaining === -1) {
                 userInitials = prompt("Please enter your initials for your high score!")
-                highScoreInitials = highScoreInitials.concat(userInitials + " - - - - - - - " + "Score: " + "9001");
+                highScoreInitials = highScoreInitials.concat(userInitials + " - - - - - - - " + "Score: " + currentScore);
                 $(".highScore").text(highScoreInitials)
             } else {}
         }, 1000);
@@ -86,6 +87,8 @@ function checkAnswer() {
             $("#buttonB").text(arrayOfQuestionsForQuestionI0[1]);
             $("#buttonC").text(arrayOfQuestionsForQuestionI0[2]);
             $("#buttonD").text(arrayOfQuestionsForQuestionI0[3]);
+
+            
         }
     
 
