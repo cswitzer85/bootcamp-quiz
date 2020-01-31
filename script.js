@@ -48,95 +48,94 @@ function getFirstQuestion() {
 }
 
 //---------------_______________---------------Functions---------------_______________---------------
-
-function checkAnswer() {
-    if (selectedButton == correctAnswerIndex) {
-        currentScore++;
-        console.log("correct")
-        correctAnswerIndex = correctAnswerIndex + 1;
-        index = index + 1;
-        $("#questionDisplay").text(questionsArray[index]);
-        $("#buttonA").text(arrayForButton0[index]);
-        $("#buttonB").text(arrayForButton1[index]);
-        $("#buttonC").text(arrayForButton2[index]);
-        $("#buttonD").text(arrayForButton3[index]);
-        if (correctAnswerIndex == 4) {
-            correctAnswerIndex = 0;
-            if (index == 8) {stopGame();}
-        }
-
-    } else {
-        console.log("wrong")
-        correctAnswerIndex = correctAnswerIndex + 1;
-        index = index + 1;
-        secondsRemaining = secondsRemaining - 5;
-        $("#questionDisplay").text(questionsArray[index]);
-        $("#buttonA").text(arrayForButton0[index]);
-        $("#buttonB").text(arrayForButton1[index]);
-        $("#buttonC").text(arrayForButton2[index]);
-        $("#buttonD").text(arrayForButton3[index]);
-        if (correctAnswerIndex == 4) {
-            correctAnswerIndex = 0
-            if (index == 8) {stopGame();}
-        }
-
-    }
-}
-
-function stopGame() {
-    $("#timer").text(0);
-    $("#gameTimer").attr("value", 0);
-    secondsRemaining = 0;
-    console.log(secondsRemaining);
-    timerInterval = clearInterval;
-    //High score function
-    $(".hidden").hide();
-    correctAnswerIndex = 0
-    selectedButton = null
-    currentScore = 0
-    index = 0
-
-}
-
-//when play button pressed ->
-// function showGame() {
-//     $("#startButton").click(function () {
-//         $(".hidden").show();
-// })}
-
 function startGame() {
     // questions and timer appear below start button
+    $(".hidden").show();
+    //timer will start counting down from 60 seconds 
+    secondsRemaining = 30;
+    currentScore = 0;
+    getFirstQuestion();
+    // $(".highScore").text(highScoreInitialArray)
+    var timerInterval = setInterval(function () {
+        secondsRemaining--;
+        //once time reaches 0 a prompt will ask user for their initials
+        if (secondsRemaining <= 0) {
+            stopGame();
+        }
+        // timer will run until it reaches 0 seconds
+        if (secondsRemaining > 0) {
+            console.log(secondsRemaining);
+            $("#timer").text(secondsRemaining);
+            $("#gameTimer").attr("value", secondsRemaining);
+        } else {}
+    }, 1000);}
 
-    $("#startButton").click(function () {
-        $(".hidden").show();
-
-        //timer will start counting down from 60 seconds 
-        secondsRemaining = 30;
-        currentScore = 0;
-        getFirstQuestion();
-        // $(".highScore").text(highScoreInitialArray)
-
-        var timerInterval = setInterval(function () {
-            secondsRemaining--;
-            //once time reaches 0 a prompt will ask user for their initials
-            if (secondsRemaining <= 0) {
-                stopGame();
-
+    function checkAnswer() {
+        if (selectedButton == correctAnswerIndex) {
+            currentScore++;
+            console.log("correct")
+            correctAnswerIndex = correctAnswerIndex + 1;
+            index = index + 1;
+            $("#questionDisplay").text(questionsArray[index]);
+            $("#buttonA").text(arrayForButton0[index]);
+            $("#buttonB").text(arrayForButton1[index]);
+            $("#buttonC").text(arrayForButton2[index]);
+            $("#buttonD").text(arrayForButton3[index]);
+            if (correctAnswerIndex == 4) {
+                correctAnswerIndex = 0;
+                if (index == 8) {
+                    stopGame();
+                }
             }
 
-            // timer will run until it reaches 0 seconds
-            else {
-                console.log(secondsRemaining);
-                $("#timer").text(secondsRemaining);
-                $("#gameTimer").attr("value", secondsRemaining);
+        } else {
+            console.log("wrong")
+            correctAnswerIndex = correctAnswerIndex + 1;
+            index = index + 1;
+            secondsRemaining = secondsRemaining - 5;
+            $("#questionDisplay").text(questionsArray[index]);
+            $("#buttonA").text(arrayForButton0[index]);
+            $("#buttonB").text(arrayForButton1[index]);
+            $("#buttonC").text(arrayForButton2[index]);
+            $("#buttonD").text(arrayForButton3[index]);
+            if (correctAnswerIndex == 4) {
+                correctAnswerIndex = 0
+                if (index == 8) {
+                    stopGame();
+                }
             }
-        }, 1000);
-    })
 
-    // function
+        }
+    }
 
-    // HighScore (JSON.stringify prompt value)
-    // userInitials = prompt("Please enter your initials for your high score!")
-    // JSON.stringify(userInitials);
+    function stopGame() {
+        $("#timer").text(0);
+        $("#gameTimer").attr("value", 0);
+        secondsRemaining = null;
+        console.log(secondsRemaining);
+        timerInterval = clearInterval;
+        //High score function
+        $(".hidden").hide();
+        correctAnswerIndex = 0
+        selectedButton = null
+        currentScore = 0
+        index = 0
 
-} //---------------End of startGame function---------------
+    }
+
+    //when play button pressed ->
+    // function showGame() {
+    //     $("#startButton").click(function () {
+    //         $(".hidden").show();
+    // })}
+
+    // $("#startButton").click() //9384uyroihjsilfdgjlsdhjfghsdlkhjfglkjsd;lkfgj
+
+
+// function
+
+// HighScore (JSON.stringify prompt value)
+// userInitials = prompt("Please enter your initials for your high score!")
+// JSON.stringify(userInitials);
+$("#startButton").click(startGame());
+//---------------End of startGame function--------------
