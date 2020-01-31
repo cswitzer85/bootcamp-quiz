@@ -1,17 +1,17 @@
 //---------------_______________---------------Variables---------------_______________---------------
-var highScoreInitials = [];
-var userInitials;
-var questionsArray = ["What letter does array stary with?", "What letter does boolean start with?", "What letter does concatinate start with?", "What letter does div start with?", "What letter does append start with?", "What letter does body start with?", "What letter does class start with?", "What letter does doctype start with?"];
-var answerOptionsArray = [arrayOfQuestionsForQuestionI0, arrayOfQuestionsForQuestionI1, arrayOfQuestionsForQuestionI3, arrayOfQuestionsForQuestionI4, arrayOfQuestionsForQuestionI5, arrayOfQuestionsForQuestionI6, arrayOfQuestionsForQuestionI7]
-var arrayOfQuestionsForQuestionI0 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI1 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI2 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI3 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI4 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI5 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI6 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var arrayOfQuestionsForQuestionI7 = ["This answer is answer A", "This answer is answer B", "This answer is answer C", "This answer is answer D"];
-var secondsRemaining = 60;
+// var highScoreInitialsArray = [];
+// var userInitials;
+var questionsArray = ["What is commonly referred to as the bones of a web page?", "What are the values of a boolean?", "What does concatinate do?", "How do you apply a CSS style document to your HTML document?", "What letter does append start with?", "What letter does body start with?", "What letter does class start with?", "What letter does doctype start with?"];
+var arrayForButton0 = ["HTML", "Yes/No", "Knocks stuff off the counter", "Combine", "This is Correct", "This is incorrect", "This is incorrect", "This is incorrect"];
+var arrayForButton1 = ["XYZ", "True/False", "Randomly rearranges an array", "Array", "This is incorrect", "This is Correct", "This is incorrect", "This is incorrect"];
+var arrayForButton2 = ["Potato", "Cat/Dog", "Combines two pieces together", "Span", "This is incorrect", "This is incorrect", "This is Correct", "This is incorrect"];
+var arrayForButton3 = ["CSS", "Zero/One", "Sings the song of their people", "Link", "This is incorrect", "This is incorrect", "This is incorrect", "This is Correct"];
+var secondsRemaining = 30;
+var correctAnswerIndex = 0
+var selectedButton = null
+var currentScore = 0
+var index = 0
+// var nextQuestion = questionsArray[index + 1]
 function buttonA_Selected() {
     selectedButton = 0
     console.log("button A pressed");
@@ -35,62 +35,91 @@ function buttonD_Selected() {
     console.log("button D pressed")
     checkAnswer();
 };
-var currentScore = 0
-var selectedButton;
+
+function getFirstQuestion() {
+
+    $("#questionDisplay").text(questionsArray[0]);
+    $("#buttonA").text(arrayForButton0[0]);
+    $("#buttonB").text(arrayForButton1[0]);
+    $("#buttonC").text(arrayForButton2[0]);
+    $("#buttonD").text(arrayForButton3[0]);
+}
 
 function checkAnswer() {
-    var correctAnswer = 0
-    if (selectedButton == correctAnswer) {
+    if (selectedButton == correctAnswerIndex) {
         currentScore++;
         console.log("correct")
-    } else {
-        secondsRemaining = secondsRemaining-10;
-        console.log("wrong")
-    }}
-
-
-    //---------------_______________---------------Functions---------------_______________---------------
-    //when play button pressed ->
-
-
-    function startGame() {
-        //timer will start counting down from 60 seconds 
-        secondsRemaining = 60;
-        currentScore = 0;
-        getFirstQuestion();
-
-        var timerInterval = setInterval(function () {
-            secondsRemaining--;
-            // timer will run until it reaches 0 seconds
-            if (secondsRemaining >= 0) {
-                console.log(secondsRemaining);
-                $("#timer").text(secondsRemaining);
-                $("#gameTimer").attr("value", secondsRemaining);
-            }
-            //once time reaches 0 a prompt will ask user for their initials
-            else if (secondsRemaining === -1) {
-                userInitials = prompt("Please enter your initials for your high score!")
-                highScoreInitials = highScoreInitials.concat(userInitials + " - - - - - - - " + "Score: " + currentScore);
-                $(".highScore").text(highScoreInitials)
-            } else {}
-        }, 1000);
-
-
-        // Question display
-        // ---------------_______________---------------Questions---------------_______________---------------
-
-        // first question will appear
-        function getFirstQuestion() {
-            // var randomQuestion = questionsArray[Math.floor(Math.random()*questionsArray.length)];
-            $("#questionDisplay").text(questionsArray[0]);
-            $("#buttonA").text(arrayOfQuestionsForQuestionI0[0]);
-            $("#buttonB").text(arrayOfQuestionsForQuestionI0[1]);
-            $("#buttonC").text(arrayOfQuestionsForQuestionI0[2]);
-            $("#buttonD").text(arrayOfQuestionsForQuestionI0[3]);
-
-            
+        correctAnswerIndex = correctAnswerIndex + 1;
+        index = index + 1;
+        $("#questionDisplay").text(questionsArray[index]);
+        $("#buttonA").text(arrayForButton0[index]);
+        $("#buttonB").text(arrayForButton1[index]);
+        $("#buttonC").text(arrayForButton2[index]);
+        $("#buttonD").text(arrayForButton3[index]);
+        if (correctAnswerIndex == 4) {
+            correctAnswerIndex = 0;
         }
-    
+
+    } else {
+        console.log("wrong")
+        var correctAnswer = correctAnswer++;
+        correctAnswerIndex = correctAnswerIndex + 1;
+        $("#questionDisplay").text(questionsArray[index]);
+        $("#buttonA").text(arrayForButton0[index]);
+        $("#buttonB").text(arrayForButton1[index]);
+        $("#buttonC").text(arrayForButton2[index]);
+        $("#buttonD").text(arrayForButton3[index]);
+        if (correctAnswerIndex == 4) {
+            correctAnswerIndex = 0
+        }
+
+    }
+}
+
+
+//---------------_______________---------------Functions---------------_______________---------------
+//when play button pressed ->
+
+
+function startGame() {
+    //timer will start counting down from 60 seconds 
+    secondsRemaining = 30;
+    currentScore = 0;
+    getFirstQuestion();
+    // $(".highScore").text(highScoreInitialArray)
+
+    var timerInterval = setInterval(function () {
+        secondsRemaining--;
+        //once time reaches 0 a prompt will ask user for their initials
+        if (secondsRemaining <= 0) {
+            $("#timer").text(0);
+            $("#gameTimer").attr("value", 0);
+            secondsRemaining = 0;
+            console.log(secondsRemaining);
+            timerInterval = clearInterval;
+            secondsRemaining = -1;
+
+        }
+
+        // timer will run until it reaches 0 seconds
+        else {
+            console.log(secondsRemaining);
+            $("#timer").text(secondsRemaining);
+            $("#gameTimer").attr("value", secondsRemaining);
+        }
+    }, 1000);
+
+
+    // HighScore
+    // userInitials = prompt("Please enter your initials for your high score!")
+
+
+
+    // Question display
+    // ---------------_______________---------------Questions---------------_______________---------------
+
+    // first question will appear
+
 
 
     // whenever an answer is chosen ->
