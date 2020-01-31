@@ -39,7 +39,7 @@ function buttonD_Selected() {
 };
 
 function getFirstQuestion() {
-    
+
     $("#questionDisplay").text(questionsArray[0]);
     $("#buttonA").text(arrayForButton0[0]);
     $("#buttonB").text(arrayForButton1[0]);
@@ -66,7 +66,8 @@ function checkAnswer() {
 
     } else {
         console.log("wrong")
-        var correctAnswer = correctAnswer++;
+        correctAnswerIndex = correctAnswerIndex + 1;
+        index = index + 1;
         secondsRemaining = secondsRemaining - 5;
         $("#questionDisplay").text(questionsArray[index]);
         $("#buttonA").text(arrayForButton0[index]);
@@ -80,40 +81,52 @@ function checkAnswer() {
     }
 }
 
+function stopGame(){
+    
+}
 
 //when play button pressed ->
-
+// function showGame() {
+//     $("#startButton").click(function () {
+//         $(".hidden").show();
+// })}
 
 function startGame() {
-    //timer will start counting down from 60 seconds 
-    secondsRemaining = 30;
-    currentScore = 0;
-    getFirstQuestion();
-    // $(".highScore").text(highScoreInitialArray)
+    // questions and timer appear below start button
 
-    var timerInterval = setInterval(function () {
-        secondsRemaining--;
-        //once time reaches 0 a prompt will ask user for their initials
-        if (secondsRemaining <= 0) {
-            $("#timer").text(0);
-            $("#gameTimer").attr("value", 0);
-            secondsRemaining = 0;
-            console.log(secondsRemaining);
-            timerInterval = clearInterval;
-            secondsRemaining = -1;
+    $("#startButton").click(function () {
+                $(".hidden").show();
 
-        }
+                //timer will start counting down from 60 seconds 
+                secondsRemaining = 30;
+                currentScore = 0;
+                getFirstQuestion();
+                // $(".highScore").text(highScoreInitialArray)
 
-        // timer will run until it reaches 0 seconds
-        else {
-            console.log(secondsRemaining);
-            $("#timer").text(secondsRemaining);
-            $("#gameTimer").attr("value", secondsRemaining);
-        }
-    }, 1000);
+                var timerInterval = setInterval(function () {
+                    secondsRemaining--;
+                    //once time reaches 0 a prompt will ask user for their initials
+                    if (secondsRemaining <= 0) {
+                        $("#timer").text(0);
+                        $("#gameTimer").attr("value", 0);
+                        secondsRemaining = 0;
+                        console.log(secondsRemaining);
+                        timerInterval = clearInterval;
 
+                    }
 
-    // HighScore
-    // userInitials = prompt("Please enter your initials for your high score!")
+                    // timer will run until it reaches 0 seconds
+                    else {
+                        console.log(secondsRemaining);
+                        $("#timer").text(secondsRemaining);
+                        $("#gameTimer").attr("value", secondsRemaining);
+                    }
+                }, 1000);})
 
-} //---------------End of startGame function---------------
+                // function
+
+                // HighScore (JSON.stringify prompt value)
+                // userInitials = prompt("Please enter your initials for your high score!")
+                // JSON.stringify(userInitials);
+
+            } //---------------End of startGame function---------------

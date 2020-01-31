@@ -19,6 +19,8 @@ header {
 .playground {
     /*value timer current divided by timer start in HTML???*/
     display: flex;
+    padding-top: 75px;
+    padding-left: 100px;
 }
 
 .row {

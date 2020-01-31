@@ -14,27 +14,27 @@
 <body>
 
     <header>So you think you know code?</header>
+    <button onclick="startGame()" id="startButton" style="margin-left: 43%";><i class="fas fa-play"></i> PRESS TO START</button>
     <div class="playground">
         <aside class="row">
             <div>
-               <button onclick="startGame()"><i class="fas fa-play"></i> PRESS TO START</button>
             </div>
             <div>
-                <progress id="gameTimer" value="30" max="30"></progress>
-                <h1 id="timer" style="padding-left: 65%;">30</h1>
+                <progress hidden class="hidden" id="gameTimer" value="30" max="30"></progress>
+                <h1 hidden class="hidden" id="timer" style="padding-left: 65%;">30</h1>
             </div>
         </aside>
         <main class="col-4-sm col-6-md col-6-lg">
-            <h1 id="questionDisplay">Questions will show here</h1>
+            <h1 hidden class="hidden" id="questionDisplay">Questions will show here</h1>
             <h3>
-                <button id="buttonA" onclick="buttonA_Selected()">(A) Answer choices will be here</button>
-                <button id="buttonB" onclick="buttonB_Selected()">(B) Answer choices will be here</button>
-                <button id="buttonC" onclick="buttonC_Selected()">(C) Answer choices will be here</button>
-                <button id="buttonD" onclick="buttonD_Selected()">(D) Answer choices will be here</button>
+                <button hidden class="hidden" id="buttonA" onclick="buttonA_Selected()">(A) Answer choices will be here</button>
+                <button hidden class="hidden" id="buttonB" onclick="buttonB_Selected()">(B) Answer choices will be here</button>
+                <button hidden class="hidden" id="buttonC" onclick="buttonC_Selected()">(C) Answer choices will be here</button>
+                <button hidden class="hidden" id="buttonD" onclick="buttonD_Selected()">(D) Answer choices will be here</button>
             </h3>
         </main>
     </div>
-    <footer class="highScore col-3-sm col-2- md col-2-lg">Can you beat the high score?
+    <footer hidden class="highScore col-3-sm col-2- md col-2-lg hidden">Can you beat the high score?
     </footer>
     </div>
 
