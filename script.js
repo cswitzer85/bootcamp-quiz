@@ -1,17 +1,19 @@
 //---------------_______________---------------Variables---------------_______________---------------
 // var highScoreInitialsArray = [];
 // var userInitials;
-var questionsArray = ["What is commonly referred to as the bones of a web page?", "What are the values of a boolean?", "What does concatinate do?", "How do you apply a CSS style document to your HTML document?", "What letter does append start with?", "What letter does body start with?", "What letter does class start with?", "What letter does doctype start with?"];
-var arrayForButton0 = ["HTML", "Yes/No", "Knocks stuff off the counter", "Combine", "This is Correct", "This is incorrect", "This is incorrect", "This is incorrect"];
-var arrayForButton1 = ["XYZ", "True/False", "Randomly rearranges an array", "Array", "This is incorrect", "This is Correct", "This is incorrect", "This is incorrect"];
-var arrayForButton2 = ["Potato", "Cat/Dog", "Combines two pieces together", "Span", "This is incorrect", "This is incorrect", "This is Correct", "This is incorrect"];
-var arrayForButton3 = ["CSS", "Zero/One", "Sings the song of their people", "Link", "This is incorrect", "This is incorrect", "This is incorrect", "This is Correct"];
+// ---------------_______________Questions & Answers_______________---------------
+var questionsArray = ["What is commonly referred to as the bones of a web page?", "What are the values of a boolean?", "What does concatinate do?", "How do you apply a CSS style document to your HTML document?", "How do you send data to the console", "How can you see what is happening on a web page?", "What are the following; div, p, img, main, footer?", "What section of the HTML document do you reference your css in?"];
+var arrayForButton0 = ["HTML", "Yes/No", "Knocks stuff off the counter", "Combine", "console.log", "Open your eyes", "Articles", "Script"];
+var arrayForButton1 = ["XYZ", "True/False", "Randomly rearranges an array", "Array", "appendToConsole", "Inspect", "Artifacts", "Footer"];
+var arrayForButton2 = ["Potato", "Cat/Dog", "Combines two pieces together", "Span", "data.console", "Close your eyes", "Elements", "Body"];
+var arrayForButton3 = ["CSS", "Zero/One", "Sings the song of their people", "Link", "sendToConsole", "ViewHTML", "Models", "Head"];
 var secondsRemaining = 30;
 var correctAnswerIndex = 0
 var selectedButton = null
 var currentScore = 0
 var index = 0
-// var nextQuestion = questionsArray[index + 1]
+// FOR RANDOM INDEX -->Math.floor(Math.random() * questionsArray.length);
+
 function buttonA_Selected() {
     selectedButton = 0
     console.log("button A pressed");
@@ -37,13 +39,15 @@ function buttonD_Selected() {
 };
 
 function getFirstQuestion() {
-
+    
     $("#questionDisplay").text(questionsArray[0]);
     $("#buttonA").text(arrayForButton0[0]);
     $("#buttonB").text(arrayForButton1[0]);
     $("#buttonC").text(arrayForButton2[0]);
     $("#buttonD").text(arrayForButton3[0]);
 }
+
+//---------------_______________---------------Functions---------------_______________---------------
 
 function checkAnswer() {
     if (selectedButton == correctAnswerIndex) {
@@ -63,7 +67,7 @@ function checkAnswer() {
     } else {
         console.log("wrong")
         var correctAnswer = correctAnswer++;
-        correctAnswerIndex = correctAnswerIndex + 1;
+        secondsRemaining = secondsRemaining - 5;
         $("#questionDisplay").text(questionsArray[index]);
         $("#buttonA").text(arrayForButton0[index]);
         $("#buttonB").text(arrayForButton1[index]);
@@ -77,7 +81,6 @@ function checkAnswer() {
 }
 
 
-//---------------_______________---------------Functions---------------_______________---------------
 //when play button pressed ->
 
 
@@ -112,19 +115,5 @@ function startGame() {
 
     // HighScore
     // userInitials = prompt("Please enter your initials for your high score!")
-
-
-
-    // Question display
-    // ---------------_______________---------------Questions---------------_______________---------------
-
-    // first question will appear
-
-
-
-    // whenever an answer is chosen ->
-    // if correct change score by +1
-    // if incorrect change time by -10 seconds
-    // next question appears
 
 } //---------------End of startGame function---------------

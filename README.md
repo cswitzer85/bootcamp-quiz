@@ -9,7 +9,7 @@ A question will apear on the top right and the timer wil start to count down fro
 # Answering questions:
 Read the question and select the button you belive to correspond with the question on the screen.
 If the answer is correct you will be awarded 1 point.
-If the answer is incorrect you will not be awarded a point and the timer will have 1 second deducted.
+If the answer is incorrect you will not be awarded a point and the timer will have 5 seconds deducted.
 
 # End of the game:
 Once the timer has stopped, a prompt will ask you for your initials.
