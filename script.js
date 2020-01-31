@@ -62,6 +62,7 @@ function checkAnswer() {
         $("#buttonD").text(arrayForButton3[index]);
         if (correctAnswerIndex == 4) {
             correctAnswerIndex = 0;
+            if (index == 8) {stopGame();}
         }
 
     } else {
@@ -76,13 +77,25 @@ function checkAnswer() {
         $("#buttonD").text(arrayForButton3[index]);
         if (correctAnswerIndex == 4) {
             correctAnswerIndex = 0
+            if (index == 8) {stopGame();}
         }
 
     }
 }
 
-function stopGame(){
-    
+function stopGame() {
+    $("#timer").text(0);
+    $("#gameTimer").attr("value", 0);
+    secondsRemaining = 0;
+    console.log(secondsRemaining);
+    timerInterval = clearInterval;
+    //High score function
+    $(".hidden").hide();
+    correctAnswerIndex = 0
+    selectedButton = null
+    currentScore = 0
+    index = 0
+
 }
 
 //when play button pressed ->
@@ -95,38 +108,35 @@ function startGame() {
     // questions and timer appear below start button
 
     $("#startButton").click(function () {
-                $(".hidden").show();
+        $(".hidden").show();
 
-                //timer will start counting down from 60 seconds 
-                secondsRemaining = 30;
-                currentScore = 0;
-                getFirstQuestion();
-                // $(".highScore").text(highScoreInitialArray)
+        //timer will start counting down from 60 seconds 
+        secondsRemaining = 30;
+        currentScore = 0;
+        getFirstQuestion();
+        // $(".highScore").text(highScoreInitialArray)
 
-                var timerInterval = setInterval(function () {
-                    secondsRemaining--;
-                    //once time reaches 0 a prompt will ask user for their initials
-                    if (secondsRemaining <= 0) {
-                        $("#timer").text(0);
-                        $("#gameTimer").attr("value", 0);
-                        secondsRemaining = 0;
-                        console.log(secondsRemaining);
-                        timerInterval = clearInterval;
+        var timerInterval = setInterval(function () {
+            secondsRemaining--;
+            //once time reaches 0 a prompt will ask user for their initials
+            if (secondsRemaining <= 0) {
+                stopGame();
 
-                    }
+            }
 
-                    // timer will run until it reaches 0 seconds
-                    else {
-                        console.log(secondsRemaining);
-                        $("#timer").text(secondsRemaining);
-                        $("#gameTimer").attr("value", secondsRemaining);
-                    }
-                }, 1000);})
+            // timer will run until it reaches 0 seconds
+            else {
+                console.log(secondsRemaining);
+                $("#timer").text(secondsRemaining);
+                $("#gameTimer").attr("value", secondsRemaining);
+            }
+        }, 1000);
+    })
 
-                // function
+    // function
 
-                // HighScore (JSON.stringify prompt value)
-                // userInitials = prompt("Please enter your initials for your high score!")
-                // JSON.stringify(userInitials);
+    // HighScore (JSON.stringify prompt value)
+    // userInitials = prompt("Please enter your initials for your high score!")
+    // JSON.stringify(userInitials);
 
-            } //---------------End of startGame function---------------
+} //---------------End of startGame function---------------
