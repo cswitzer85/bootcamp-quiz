@@ -61,12 +61,13 @@ h1 {
     font-size: xx-large;
 }
 
-footer {
+ul {
     margin-top: 2%;
     padding-left: 2%;
     background-color: black;
     color: lime;
     font-family: monospace;
     font-size: xx-large;
+    text-align: center;
     border: dashed lime;
 }

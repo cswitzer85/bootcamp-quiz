@@ -19,11 +19,9 @@ var playerScoreStored = Object.values(localStorage);
 // FOR RANDOM INDEX -->Math.floor(Math.random() * questionsArray.length);
 function clearScoreboard(){
     localStorage.clear();
-    playerNameStored = Object.keys(localStorage);
-    playerScoreStored = Object.values(localStorage);
-    displayScore = "SCORES CLEARED";
+    displayScore = "CAN YOU BEAT THE HIGH SCORE?";
     $(".scoreBoard").text(displayScore);
-    var displayScore = "";
+    displayScore = ""
 }
 function buttonA_Selected() {
     selectedButton = 0
@@ -115,11 +113,15 @@ function checkAnswer() {
     playerScoreStored = Object.values(localStorage);
     console.log(playerNameStored);
     console.log(playerScoreStored);
+    displayScore = "";
     var i;
     for (i = 0; i < playerNameStored.length; i++) {
-      displayScore += playerNameStored[i] + " . . . . . " + playerScoreStored[i] + "<br>";
+        var scoreText = " - - - - - - - - - - " + playerNameStored[i] + " . . . . . " + playerScoreStored[i] + " - - - - - - - - - - ";
+        var newLi = $("<li>")
+        newLi.text(scoreText)
+        newLi.appendTo(".scoreBoard")
     }
-    $(".scoreBoard").text(displayScore);
+    
 }
 
 // document.getElementById("#startButton").addEventListener("click", startGame());
