@@ -1,6 +1,5 @@
 //---------------_______________---------------Variables---------------_______________---------------
 var userInitials;
-// ---------------_______________Questions & Answers_______________---------------
 var questionsArray = ["What is commonly referred to as the bones of a web page?", "What are the values of a boolean?", "What does concatinate do?", "How do you apply a CSS style document to your HTML document?", "How do you send data to the console", "How can you see what is happening on a web page?", "What are the following; div, p, img, main, footer?", "What section of the HTML document do you reference your css in?"];
 var arrayForButton0 = ["HTML", "Yes/No", "Knocks stuff off the counter", "Combine", "console.log", "Open your eyes", "Articles", "Script"];
 var arrayForButton1 = ["XYZ", "True/False", "Randomly rearranges an array", "Array", "appendToConsole", "Inspect", "Artifacts", "Footer"];
@@ -11,13 +10,21 @@ var correctAnswerIndex = 0
 var selectedButton;
 var currentScore;
 var index = 0
+// var i;
 var highScore;
-var displayScore;
+var displayScore = "";
 var playerNameStored = Object.keys(localStorage);
 var playerScoreStored = Object.values(localStorage);
-    
-// FOR RANDOM INDEX -->Math.floor(Math.random() * questionsArray.length);
 
+// FOR RANDOM INDEX -->Math.floor(Math.random() * questionsArray.length);
+function clearScoreboard(){
+    localStorage.clear();
+    playerNameStored = Object.keys(localStorage);
+    playerScoreStored = Object.values(localStorage);
+    displayScore = "SCORES CLEARED";
+    $(".scoreBoard").text(displayScore);
+    var displayScore = "";
+}
 function buttonA_Selected() {
     selectedButton = 0
     console.log("button A pressed");
@@ -97,22 +104,23 @@ function checkAnswer() {
 
     }
 }
-function getScores() {
+
+    function getPlayerName() {
     userInitials = prompt("Please enter your initials for your high score!")
+    }
+
+    function getScores() {
     localStorage.setItem(userInitials, currentScore);
-    
-// for (var playerName in localStorage) {
-//     console.log(playerName);
-playerNameArray = Object.keys(localStorage);
-playerScoreArray = Object.values(localStorage);
-// for (i = 0;i < localStorage.length; i++)
-$(".scoreBoard").text("Player " + (playerNameStored) + " . . . . . " + "Score " + (playerScoreStored));
-console.log(playerNameStored);
-console.log(playerScoreStored);
-
-
+    playerNameStored = Object.keys(localStorage);
+    playerScoreStored = Object.values(localStorage);
+    console.log(playerNameStored);
+    console.log(playerScoreStored);
+    var i;
+    for (i = 0; i < playerNameStored.length; i++) {
+      displayScore += playerNameStored[i] + " . . . . . " + playerScoreStored[i] + "<br>";
+    }
+    $(".scoreBoard").text(displayScore);
 }
-
 
 // document.getElementById("#startButton").addEventListener("click", startGame());
 // $("#startButton").click(startGame());
@@ -124,7 +132,7 @@ function startGame() {
     secondsRemaining = 30;
     currentScore = 0;
     getFirstQuestion();
-    var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function() {
         secondsRemaining--;
         // timer will run until it reaches 0 seconds or all questions are answered
         if (secondsRemaining > 0) {
@@ -136,10 +144,11 @@ function startGame() {
         else {
             stopGame();
             clearInterval(timerInterval);
-            getScores();// problem here    !!!---------------------------------Fix This---------------------------------!!!
+            getPlayerName();
+            getScores();
             // currentScore = 0
             $(".hidden").hide();
-        
+
         }
     }, 1000);
 } //---------------End of startGame function--------------
