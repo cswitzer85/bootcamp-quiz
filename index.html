@@ -11,20 +11,19 @@
 </script>    <script src="script.js"></script>
 </head>
 
+<header>So you think you know code?</header>
 <body>
-
-    <header>So you think you know code?</header>
-    <button onclick="startGame()" id="startButton" style="margin-left: 43%";><i class="fas fa-play"></i> PRESS TO START</button>
+    <button onclick="startGame()" id="startButton";><i class="fas fa-play"></i> PRESS TO START</button>
     <div class="playground">
         <aside class="row">
             <div>
             </div>
-            <div>
+            <div style="width: 50%;">
                 <progress hidden class="hidden" id="gameTimer" value="30" max="30"></progress>
-                <h1 hidden class="hidden" id="timer" style="padding-left: 65%;">30</h1>
+                <h1 hidden class="hidden" id="timer" style="padding-left: 65%;">15</h1>
             </div>
         </aside>
-        <main class="col-4-sm col-6-md col-6-lg">
+        <main class="col-6-sm col-9-md col-11-lg">
             <h1 hidden class="hidden" id="questionDisplay">Questions will show here</h1>
             <h3>
                 <button hidden class="hidden" id="buttonA" onclick="buttonA_Selected()">(A) Answer choices will be here</button>
@@ -37,7 +36,7 @@
     <ul class="scoreBoard col-3-sm col-2- md col-2-lg">CAN YOU BEAT THE HIGH SCORE?
         <!-- hidden removed -->
     </ul>
-    <button onclick="clearScoreboard()" id="clearScoreboard" style="margin-left: 43%";><i class="fas fa-eraser"></i>CLEAR SCOREBOARD</button>
+    <button onclick="clearScoreboard()" id="clearScoreboard";><i class="fas fa-eraser"></i>CLEAR SCOREBOARD</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
